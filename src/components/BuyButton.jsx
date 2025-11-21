@@ -7,7 +7,6 @@ import React, { useEffect, useRef } from 'react'
 
   Required env vars (add to frontend .env):
     VITE_SHOPIFY_DOMAIN=your-store.myshopify.com
-    VITE_SHOPIFY_STOREFRONT_TOKEN=not required for Buy Button
     VITE_SHOPIFY_PRODUCT_ID=gid://shopify/Product/1234567890  OR the numeric ID
 
   Usage: <BuyButton />
@@ -28,7 +27,7 @@ export default function BuyButton({
     function load() {
       const client = window.ShopifyBuy.buildClient({
         domain,
-        storefrontAccessToken: 'dummy' // not used for Buy Button, required by API signature
+        storefrontAccessToken: 'not-needed-for-buy-button'
       })
 
       window.ShopifyBuy.UI.onReady(client).then((ui) => {
